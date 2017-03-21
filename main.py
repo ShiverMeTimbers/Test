@@ -1,4 +1,5 @@
 import tweepy
+import os
 from keys import *
 
 auth = tweepy.OAuthHandler('consumer_key', 'consumer_secret')
@@ -12,6 +13,11 @@ cfg_tweets = twitter_api.search(
 
 for tweet in cfg_tweets:
 	print tweet.user.name + ": " + tweet.text
+
+if 'PORT' in os.environ:
+     app.run(host='0.0.0.0', port=int(os.environ['PORT']))
+else:
+     app.run(debug=True)
 
 
 
