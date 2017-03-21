@@ -1,17 +1,26 @@
+import tweepy
+from keys import *
 
-from flask import Flask, render_template #renders templates - HTML from within python
-app = Flask(__name__)
+auth = tweepy.OAuthHandler('consumer_key', 'consumer_secret')
+auth.set_access_token('access_token', 'access_level_secret')
+
+twitter_api = tweepy.API('auth')
+
+cfg_tweets = twitter_api.search(
+	q="CodeFirstGirls"
+)
+
+for tweet in cfg_tweets:
+	print tweet.user.name + ": " + tweet.text
 
 
-@app.route('/') #tells decorator to tell Flsk what URL should trigger the function
-def shopping():
-	food = ["Cheese", "Tuna", "Beef"]
-	return render_template("shopping.html", food=food)
 
 
 
-if __name__ == '__main__':
-  app.run(host='0.0.0.0', debug=True)
+
+
+
+
 
 
 

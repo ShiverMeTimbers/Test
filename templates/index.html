@@ -1,4 +1,12 @@
 <!doctype html>
-<title>The home page</title>
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-<h1>Hey there {{ name }}</h1>
+<html>
+ 	<body>
+		<title>The home page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		{% for %}
+		<p>{{ data }}</p>
+ 		<p> {{ res }}</p>
+ 		{% endfor %}
+ 	</body>
+</html>
+
