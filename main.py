@@ -1,6 +1,7 @@
 
 import os
 import re
+import requests
 import http.client
 from flask import Flask, render_template #renders templates - HTML from within python
 app = Flask(__name__)
