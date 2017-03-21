@@ -1,6 +1,4 @@
 
-import os
-import re
 import requests
 
 from flask import Flask, render_template #renders templates - HTML from within python
@@ -15,10 +13,7 @@ def shopping():
 
 
 if __name__ == '__main__':
-    if 'PORT' in os.environ:
-        app.run(host='0.0.0.0', port=int(os.environ['PORT']))
-    else:
-        app.run(debug=True, port=80)
+  app.run(host='0.0.0.0', debug=True)
 
 
 
